@@ -10,9 +10,9 @@ Need to generate some unique content for each e-mail? No problem! You can use pl
 ## Installation
 
 #### Package Manager:
-`Install-Package OuiMailer -Version 1.0.1`
+`Install-Package OuiMailer -Version 1.0.2`
 #### .NET CLI:
-`dotnet add package OuiMailer --version 1.0.1`
+`dotnet add package OuiMailer --version 1.0.2`
 
 ## Usage
 
