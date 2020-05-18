@@ -16,6 +16,8 @@ Need to generate some unique content for each e-mail? No problem! You can use pl
 
 ## Usage
 
+The example project that uses the below code can be found under `OuiMailer.Example.csproj`. Feel free to clone and play around!
+
 ### Sending E-mails:
 Initialize EmailSender class with the default constructor - that's all you need!:
 ```csharp
@@ -64,5 +66,5 @@ var exampleEmailBody2 = builder2.Run(RegexOptions.IgnoreCase);
 ```
 Once you get the body, you can pass it to the `SendEmailAsync()` method as a `string msg` parameter, or include as a `Body` in the `MailMessage` object (remember to set `IsBodyHtml` flag to `true`).
 
-Thanks for reading and feel free to reach out!
-Pav
+##### Thanks for reading and feel free to reach out!
+##### Pav
