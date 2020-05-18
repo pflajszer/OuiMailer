@@ -12,7 +12,7 @@ namespace OuiMailer
 		Ports Port { get; set; }
 		string Login { get; set; }
 		string Password { get; set; }
-		Task SendEmailAsync(MailMessage email, SmtpClient smtpClient = null, int dequeCount = 0);
-		Task SendEmailAsync(string to, string subject, string msg, bool isBodyHtml, int dequeCount = 0);
+		Task SendEmailAsync(MailMessage email, int dequeCount = 5);
+		Task SendEmailAsync(string to, string subject, string msg, bool isBodyHtml, int dequeCount = 5);
 	}
 }

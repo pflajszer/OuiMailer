@@ -36,7 +36,7 @@ namespace OuiMailer
 			return client;
 		}
 
-		public async Task SendEmailAsync(MailMessage email, SmtpClient smtpClient = null, int dequeCount = 0)
+		public async Task SendEmailAsync(MailMessage email, int dequeCount = 5)
 		{
 			using (SmtpClient client = ConfigureServices())
 			{
@@ -46,9 +46,9 @@ namespace OuiMailer
 				}
 				catch (Exception ex)
 				{
-					if (dequeCount < 5)
+					if (dequeCount > 0)
 					{
-						await SendEmailAsync(email, smtpClient, dequeCount + 1);
+						await SendEmailAsync(email, dequeCount - 1);
 					}
 					else
 					{
@@ -58,12 +58,9 @@ namespace OuiMailer
 			}
 		}
 
-		public async Task SendEmailAsync(string to, string subject, string msg, bool isBodyHtml = true, int dequeCount = 0)
+		public async Task SendEmailAsync(string to, string subject, string body, bool isBodyHtml = true, int dequeCount = 5)
 		{
-			var email = new MailMessage(From,
-										to,
-										subject,
-										msg)
+			var email = new MailMessage(From, to, subject, body)
 			{
 				IsBodyHtml = isBodyHtml
 			};
@@ -75,9 +72,9 @@ namespace OuiMailer
 				}
 				catch (Exception ex)
 				{
-					if (dequeCount < 5)
+					if (dequeCount > 0)
 					{
-						await SendEmailAsync(to, subject, msg, isBodyHtml, dequeCount + 1);
+						await SendEmailAsync(to, subject, body, isBodyHtml, dequeCount - 1);
 					}
 					else
 					{
