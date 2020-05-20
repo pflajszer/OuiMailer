@@ -69,5 +69,9 @@ var exampleEmailBody2 = builder2.Run(RegexOptions.IgnoreCase);
 ```
 Once you get the body, you can pass it to the `SendEmailAsync()` method as a `string msg` parameter, or include as a `Body` in the `MailMessage` object (remember to set `IsBodyHtml` flag to `true`).
 
+### Use for .NET Identity
+
+`EmailSender` class implements `IEmailSender` interface, which means it can be used straight out of the box when utilizing .NET Identity framework
+
 ##### Thanks for reading and feel free to reach out!
 ##### Pav
