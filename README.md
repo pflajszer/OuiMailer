@@ -1,3 +1,6 @@
+![alt text](https://github.com/pflajszer/OuiMailer/blob/dev/OuiMailer%20logo.png?raw=true)
+
+
 # OuiMailer
 Helpful package for generating email body, configuring SMTP Client and sending emails built in `.NET Standard 2.0`.
 The purpose of the library is to make it easy to send automated e-mails with dynamically amendable bodies right from within your code.
