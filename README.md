@@ -1,4 +1,4 @@
-![alt text](https://github.com/pflajszer/OuiMailer/blob/dev/OuiMailer%20logo.png?raw=true)
+![alt text](https://github.com/pflajszer/OuiMailer/blob/dev/OuiMailer%20logo.png)
 
 
 # OuiMailer
