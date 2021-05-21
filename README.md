@@ -17,12 +17,38 @@ Need to generate some unique content for each e-mail? No problem! You can use pl
 #### .NET CLI:
 `dotnet add package OuiMailer --version 1.0.2`
 
+## Setup
+
+When using dependency injection in .NET Core 3.X, you can register type like so, by registering a type in the ```ConfigureServices()``` method:
+
+Startup.cs:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+	services.AddScoped<IEmailSender>(provider => new EmailSender(Hosts.Gmail, "myLogin", "myPassword"));
+}
+```
+
+MyClass.cs:
+
+```csharp
+public class MyClass
+{
+	private readonly IEmailSender _sender;
+
+	public EmailManager(IEmailSender sender)
+	{
+		_sender = sender;
+	}
+}
+```
+
 ## Usage
 
 The example project that uses the below code can be found under `OuiMailer.Example.csproj`. Feel free to clone and play around!
 
 ### Sending E-mails:
-Initialize EmailSender class with the default constructor - that's all you need!:
+If you're not using DI, initialize EmailSender class with the default constructor - that's all you need!:
 ```csharp
 var emailer = new EmailSender(Hosts.Gmail, "yourmail-or-login@gmail.com", "yourPassword");
 ```
