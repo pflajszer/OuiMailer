@@ -99,5 +99,15 @@ Once you get the body, you can pass it to the `SendEmailAsync()` method as a `st
 
 `EmailSender` class implements `IEmailSender` interface, which means it can be used straight out of the box when utilizing .NET Identity framework
 
-##### Thanks for reading and feel free to reach out!
-##### Pav
+## Deployment
+
+Use tags for versioning. Check the current iteration (tag) and in cmd:
+
+```git
+git checkout [test/master]
+git pull
+git tag v[Major].[Minor].[Patch]-[beta if test branch]
+git push origin [version]
+```
+
+Then, push the code to test and merge into master.
